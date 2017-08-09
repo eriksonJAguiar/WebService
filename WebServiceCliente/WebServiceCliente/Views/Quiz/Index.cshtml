@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Quiz";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var s = new WebServiceCliente.Models.Service();
+    WebServiceCliente.PerguntasWSDL.questoes q = s.getQuestao();
+
+
+}
+<div>
+    <p><b>Questão:</b> @q.enunciado</p>
+
+    <form>
+        <div class="radio">
+            <label><input type="radio" name="optradio"><b>a)</b> @q.a</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"><b>b)</b> @q.b</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"><b>c)</b> @q.c</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"><b>d)</b> @q.d</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="optradio"><b>e)</b> @q.e</label>
+        </div>
+        </br>
+        <button type="submit" class="btn btn-success">Responder</button>
+
+    </form>
+</div>
+
+
+
