@@ -28,12 +28,12 @@ public class Perguntas {
     }
 
     @WebMethod(operationName = "setResposta")
-    public void setResposta(@WebParam(name = "ra") String ra,
+    public boolean setResposta(@WebParam(name = "ra") String ra,
             @WebParam(name = "resp") String resp,
             @WebParam(name = "q") Questoes q) {
         Respostas r = new Respostas();
         RespostasDao dao = new RespostasDao();
-
+        boolean acertou = false;
         r.setRa(ra);
 
         if (resp.equals("")) {
@@ -44,6 +44,7 @@ public class Perguntas {
 
         if (resp.equals(q.getCorreta())) {
             r.setAcertou(true);
+            acertou = true;
         } else {
             r.setAcertou(false);
         }
@@ -57,6 +58,8 @@ public class Perguntas {
         } catch (Exception ex) {
             Logger.getLogger(Perguntas.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        return acertou;
     }
 
 }
