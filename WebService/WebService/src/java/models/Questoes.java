@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 import java.io.Serializable;
 
 public class Questoes implements Serializable {
 
-   
     private Integer id;
     private String enunciado;
     private String a;
@@ -114,5 +108,5 @@ public class Questoes implements Serializable {
     public String toString() {
         return "app.models.Questoes[ id=" + id + " ]";
     }
-    
+
 }

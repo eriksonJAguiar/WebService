@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import controlles.ConnectionFactory;
@@ -16,12 +11,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Questoes;
 
-/**
- *
- * @author erikson
- */
-public class QuestoesDao implements Serializable{
-      public void insert(Questoes q) {
+public class QuestoesDao implements Serializable {
+
+    public void insert(Questoes q) {
         String sql = "INSERT INTO questoes(enunciado,A,B,C,D,E,correta) VALUES(?,?,?,?,?,?,?)";
 
         Connection conn = null;
@@ -97,16 +89,16 @@ public class QuestoesDao implements Serializable{
 
             //Cria um PreparedStatment, classe usada para executar a query
             pstm = conn.prepareStatement(sql);
-            
-               pstm.setString(1, q.getEnunciado());
-               pstm.setString(2, q.getA());
-               pstm.setString(3, q.getB());
-               pstm.setString(4, q.getC());
-               pstm.setString(5, q.getD());
-               pstm.setString(6, q.getE());
-               pstm.setString(7, q.getCorreta());
-               pstm.setInt(2, q.getId());
-               
+
+            pstm.setString(1, q.getEnunciado());
+            pstm.setString(2, q.getA());
+            pstm.setString(3, q.getB());
+            pstm.setString(4, q.getC());
+            pstm.setString(5, q.getD());
+            pstm.setString(6, q.getE());
+            pstm.setString(7, q.getCorreta());
+            pstm.setInt(2, q.getId());
+
             pstm.execute();
 
         } catch (Exception e) {
@@ -140,13 +132,13 @@ public class QuestoesDao implements Serializable{
         Questoes q = new Questoes();
 
         try {
-            
-             conn = ConnectionFactory.createConnectionToMySQL();
-            
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
             pstm = conn.prepareStatement(sql);
-            
+
             rset = pstm.executeQuery();
-            
+
             while (rset.next()) {
                 q.setId(rset.getInt("id"));
                 q.setEnunciado(rset.getString("enunciado"));
@@ -157,19 +149,18 @@ public class QuestoesDao implements Serializable{
                 q.setE(rset.getString("E"));
                 q.setCorreta(rset.getString("correta"));
             }
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally{
+        } finally {
             conn.close();
         }
-        
+
         return q;
     }
+
     public ArrayList<Questoes> findAll() {
-         String sql = "SELECT * FROM questoes";
+        String sql = "SELECT * FROM questoes";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -177,44 +168,43 @@ public class QuestoesDao implements Serializable{
         ArrayList<Questoes> ql = new ArrayList<Questoes>();
 
         try {
-            
-             conn = ConnectionFactory.createConnectionToMySQL();
-            
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
             pstm = conn.prepareStatement(sql);
-            
-            rset = pstm.executeQuery(); 
-            
-            while(rset.next()){
-               Questoes q = new Questoes();
-               
-               q.setId(rset.getInt("id"));
-               q.setEnunciado(rset.getString("enunciado"));
-               q.setA(rset.getString("A"));
-               q.setB(rset.getString("B"));
-               q.setC(rset.getString("C"));
-               q.setD(rset.getString("D"));
-               q.setE(rset.getString("E"));
-               q.setCorreta(rset.getString("correta"));
-                
+
+            rset = pstm.executeQuery();
+
+            while (rset.next()) {
+                Questoes q = new Questoes();
+
+                q.setId(rset.getInt("id"));
+                q.setEnunciado(rset.getString("enunciado"));
+                q.setA(rset.getString("A"));
+                q.setB(rset.getString("B"));
+                q.setC(rset.getString("C"));
+                q.setD(rset.getString("D"));
+                q.setE(rset.getString("E"));
+                q.setCorreta(rset.getString("correta"));
+
                 ql.add(q);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        finally{
-             try {
-                 conn.close();
-             } catch (SQLException ex) {
-                 Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }
-        
+
         return ql;
     }
 
     public Questoes find(int id) {
-         String sql = "SELECT * FROM questoes WHERE id = ? ";
+        String sql = "SELECT * FROM questoes WHERE id = ? ";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -222,15 +212,15 @@ public class QuestoesDao implements Serializable{
         Questoes q = new Questoes();
 
         try {
-            
-             conn = ConnectionFactory.createConnectionToMySQL();
-            
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
             pstm = conn.prepareStatement(sql);
-            
+
             pstm.setInt(1, id);
-            
-            rset = pstm.executeQuery();    
-            
+
+            rset = pstm.executeQuery();
+
             while (rset.next()) {
                 q.setId(rset.getInt("id"));
                 q.setEnunciado(rset.getString("enunciado"));
@@ -241,18 +231,17 @@ public class QuestoesDao implements Serializable{
                 q.setE(rset.getString("E"));
                 q.setCorreta(rset.getString("correta"));
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        finally{
-             try {
-                 conn.close();
-             } catch (SQLException ex) {
-                 Logger.getLogger(QuestoesDao.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }
-        
+
         return q;
     }
 }

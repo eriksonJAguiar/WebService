@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import controlles.ConnectionFactory;
@@ -16,11 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import models.Respostas;
 
-/**
- *
- * @author erikson
- */
-public class RespostasDao implements Serializable{
+public class RespostasDao implements Serializable {
 
     public void insert(Respostas r) {
         String sql = "INSERT INTO respostas(idQuestao,ra,resposta,acertou,ativo)"
@@ -96,15 +87,15 @@ public class RespostasDao implements Serializable{
 
             //Cria um PreparedStatment, classe usada para executar a query
             pstm = conn.prepareStatement(sql);
-            
+
             pstm.setInt(1, r.getIdQuestao());
             pstm.setString(2, r.getRa());
             pstm.setString(3, r.getResposta());
             pstm.setBoolean(4, r.getAcertou());
             pstm.setBoolean(5, r.getAtivo());
-            
+
             pstm.setInt(6, r.getId());
-            
+
             pstm.execute();
 
         } catch (Exception e) {
@@ -128,8 +119,9 @@ public class RespostasDao implements Serializable{
             }
         }
     }
+
     public ArrayList<Respostas> findAll() {
-         String sql = "SELECT * FROM respostas";
+        String sql = "SELECT * FROM respostas";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -137,42 +129,41 @@ public class RespostasDao implements Serializable{
         ArrayList<Respostas> rl = new ArrayList<Respostas>();
 
         try {
-            
-             conn = ConnectionFactory.createConnectionToMySQL();
-            
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
             pstm = conn.prepareStatement(sql);
-            
-            rset = pstm.executeQuery(); 
-            
-            while(rset.next()){
+
+            rset = pstm.executeQuery();
+
+            while (rset.next()) {
                 Respostas resp = new Respostas();
-                
+
                 resp.setAcertou(rset.getBoolean("acertou"));
                 resp.setAtivo(rset.getBoolean("ativo"));
                 resp.setId(rset.getInt("id"));
                 resp.setIdQuestao(rset.getInt("idQuestao"));
                 resp.setRa(rset.getString("ra"));
                 resp.setResposta(rset.getString("resposta"));
-                
+
                 rl.add(resp);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(RespostasDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(RespostasDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        finally{
-             try {
-                 conn.close();
-             } catch (SQLException ex) {
-                 Logger.getLogger(RespostasDao.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }
-        
+
         return rl;
     }
 
     public Respostas find(int id) {
-         String sql = "SELECT * FROM respostas WHERE id = ? ";
+        String sql = "SELECT * FROM respostas WHERE id = ? ";
 
         Connection conn = null;
         PreparedStatement pstm = null;
@@ -180,15 +171,15 @@ public class RespostasDao implements Serializable{
         Respostas resp = new Respostas();
 
         try {
-            
-             conn = ConnectionFactory.createConnectionToMySQL();
-            
+
+            conn = ConnectionFactory.createConnectionToMySQL();
+
             pstm = conn.prepareStatement(sql);
-            
+
             pstm.setInt(1, id);
-            
-            rset = pstm.executeQuery();    
-            
+
+            rset = pstm.executeQuery();
+
             while (rset.next()) {
                 resp.setAcertou(rset.getBoolean("acertou"));
                 resp.setAtivo(rset.getBoolean("ativo"));
@@ -197,18 +188,17 @@ public class RespostasDao implements Serializable{
                 resp.setRa(rset.getString("ra"));
                 resp.setResposta(rset.getString("resposta"));
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(RespostasDao.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                conn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(RespostasDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        finally{
-             try {
-                 conn.close();
-             } catch (SQLException ex) {
-                 Logger.getLogger(RespostasDao.class.getName()).log(Level.SEVERE, null, ex);
-             }
-        }
-        
+
         return resp;
     }
 }

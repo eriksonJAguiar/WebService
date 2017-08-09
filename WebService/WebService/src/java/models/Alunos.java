@@ -1,16 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
 import java.io.Serializable;
 
-
 public class Alunos implements Serializable {
 
-   
     private String ra;
     private String nome;
     private String email;
@@ -93,5 +86,5 @@ public class Alunos implements Serializable {
     public String toString() {
         return "app.models.Alunos[ ra=" + ra + " ]";
     }
-    
+
 }
