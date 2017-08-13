@@ -13,5 +13,12 @@ namespace WebServiceCliente.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Index(string ra, string senha)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }
