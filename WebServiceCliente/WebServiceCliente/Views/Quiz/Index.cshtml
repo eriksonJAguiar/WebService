@@ -1,36 +1,152 @@
-﻿@{
+﻿@model WebServiceCliente.PerguntasWSDL.questoes
+
+@{
     ViewBag.Title = "Quiz";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
-    var s = new WebServiceCliente.Models.Service();
-    WebServiceCliente.PerguntasWSDL.questoes q = s.getQuestao();
-
-
 }
-<div>
-    <p><b>Questão:</b> @q.enunciado</p>
 
-    <form>
-        <div class="radio">
-            <label><input type="radio" name="optradio"><b>a)</b> @q.a</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio"><b>b)</b> @q.b</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio"><b>c)</b> @q.c</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio"><b>d)</b> @q.d</label>
-        </div>
-        <div class="radio">
-            <label><input type="radio" name="optradio"><b>e)</b> @q.e</label>
-        </div>
-        </br>
-        <button type="submit" class="btn btn-success">Responder</button>
 
+
+<style>
+    .funkyradio div {
+        clear: both;
+        overflow: hidden;
+    }
+
+    .funkyradio label {
+        width: 100%;
+        border-radius: 3px;
+        border: 1px solid #D1D3D4;
+        font-weight: normal;
+    }
+
+    .funkyradio input[type="radio"]:empty,
+    .funkyradio input[type="checkbox"]:empty {
+        display: none;
+    }
+
+        .funkyradio input[type="radio"]:empty ~ label,
+        .funkyradio input[type="checkbox"]:empty ~ label {
+            position: relative;
+            line-height: 2.5em;
+            text-indent: 3.25em;
+            margin-top: 2em;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+            .funkyradio input[type="radio"]:empty ~ label:before,
+            .funkyradio input[type="checkbox"]:empty ~ label:before {
+                position: absolute;
+                display: block;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                content: '';
+                width: 2.5em;
+                background: #D1D3D4;
+                border-radius: 3px 0 0 3px;
+            }
+
+    .funkyradio input[type="radio"]:hover:not(:checked) ~ label,
+    .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label {
+        color: #888;
+    }
+
+        .funkyradio input[type="radio"]:hover:not(:checked) ~ label:before,
+        .funkyradio input[type="checkbox"]:hover:not(:checked) ~ label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #C2C2C2;
+        }
+
+    .funkyradio input[type="radio"]:checked ~ label,
+    .funkyradio input[type="checkbox"]:checked ~ label {
+        color: #777;
+    }
+
+        .funkyradio input[type="radio"]:checked ~ label:before,
+        .funkyradio input[type="checkbox"]:checked ~ label:before {
+            content: '\2714';
+            text-indent: .9em;
+            color: #333;
+            background-color: #ccc;
+        }
+
+    .funkyradio input[type="radio"]:focus ~ label:before,
+    .funkyradio input[type="checkbox"]:focus ~ label:before {
+        box-shadow: 0 0 0 3px #999;
+    }
+
+    .funkyradio-default input[type="radio"]:checked ~ label:before,
+    .funkyradio-default input[type="checkbox"]:checked ~ label:before {
+        color: #333;
+        background-color: #ccc;
+    }
+
+    .funkyradio-primary input[type="radio"]:checked ~ label:before,
+    .funkyradio-primary input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #337ab7;
+    }
+
+    .funkyradio-success input[type="radio"]:checked ~ label:before,
+    .funkyradio-success input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #5cb85c;
+    }
+
+    .funkyradio-danger input[type="radio"]:checked ~ label:before,
+    .funkyradio-danger input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #d9534f;
+    }
+
+    .funkyradio-warning input[type="radio"]:checked ~ label:before,
+    .funkyradio-warning input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #f0ad4e;
+    }
+
+    .funkyradio-info input[type="radio"]:checked ~ label:before,
+    .funkyradio-info input[type="checkbox"]:checked ~ label:before {
+        color: #fff;
+        background-color: #5bc0de;
+    }
+</style>
+
+<br />
+<br />
+
+<h2><b>Questão: </b>@Model.enunciado</h2>
+<br />
+    <form method="post" action="Index">
+        <div class="funkyradio">
+            <div class="funkyradio-success">
+                <input type="radio" name="radio" id="radio1" value="a" />
+                <label for="radio1"><b>a)</b> @Model.a</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="radio" name="radio" id="radio2" value="b" />
+                <label for="radio2"><b>b)</b> @Model.b</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="radio" name="radio" id="radio3" value="c" />
+                <label for="radio3"><b>c)</b> @Model.c</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="radio" name="radio" id="radio4" value="d" />
+                <label for="radio4"><b>d)</b> @Model.d</label>
+            </div>
+            <div class="funkyradio-success">
+                <input type="radio" name="radio" id="radio5" value="e" />
+                <label for="radio5"><b>e)</b> @Model.e</label>
+            </div>
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Responder</button>
     </form>
-</div>
-
-
 

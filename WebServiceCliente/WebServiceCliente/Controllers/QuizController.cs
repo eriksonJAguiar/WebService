@@ -8,8 +8,16 @@ namespace WebServiceCliente.Controllers
 {
     public class QuizController : Controller
     {
-        // GET: Quiz
+       
         public ActionResult Index()
+        {
+            var s = new Models.Service();
+            PerguntasWSDL.questoes q = s.getQuestao();
+            return View(q);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string radio, PerguntasWSDL.questoes q)
         {
             return View();
         }
