@@ -6,7 +6,6 @@
 }
 
 
-
 <style>
     .funkyradio div {
         clear: both;
@@ -146,7 +145,27 @@
                 <label for="radio5"><b>e)</b> @Model.e</label>
             </div>
         </div>
+
+        <input type="hidden" name="id" value="@Model.id" />
+
         <br />
         <button type="submit" class="btn btn-primary btn-block btn-lg">Responder</button>
     </form>
 
+@if (TempData["RespostaCerta"] != null)
+{
+    <br />
+    <div class="alert alert-success alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"><h2>&times;</h2></a>
+        <h2>@TempData["RespostaCerta"]</h2>
+    </div>
+}
+
+@if (TempData["RespostaErrada"] != null)
+{
+    <br />
+    <div class="alert alert-danger alert-dismissable">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"><h2>&times;</h2></a>
+        <h2>@TempData["RespostaErrada"]</h2>
+    </div>
+}

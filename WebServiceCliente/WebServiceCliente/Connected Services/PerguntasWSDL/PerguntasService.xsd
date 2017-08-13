@@ -28,7 +28,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="ra" type="xs:string" />
       <xs:element minOccurs="0" name="resp" type="xs:string" />
-      <xs:element minOccurs="0" name="q" type="tns:questoes" />
+      <xs:element name="questao" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="setRespostaResponse">

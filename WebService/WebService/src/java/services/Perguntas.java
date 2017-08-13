@@ -30,9 +30,10 @@ public class Perguntas {
     @WebMethod(operationName = "setResposta")
     public boolean setResposta(@WebParam(name = "ra") String ra,
             @WebParam(name = "resp") String resp,
-            @WebParam(name = "q") Questoes q) {
+            @WebParam(name = "questao") int questao) {
         Respostas r = new Respostas();
         RespostasDao dao = new RespostasDao();
+        QuestoesDao daoQ = new QuestoesDao();
         boolean acertou = false;
         r.setRa(ra);
 
@@ -41,6 +42,8 @@ public class Perguntas {
         } else {
             r.setAtivo(true);
         }
+        
+        Questoes q = daoQ.find(questao);
 
         if (resp.equals(q.getCorreta())) {
             r.setAcertou(true);

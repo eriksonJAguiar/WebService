@@ -16,15 +16,6 @@ namespace WebServiceCliente.PerguntasWSDL {
     public interface Perguntas {
         
         // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
-        [System.ServiceModel.OperationContractAttribute(Action="http://services/Perguntas/setRespostaRequest", ReplyAction="http://services/Perguntas/setRespostaResponse")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
-        WebServiceCliente.PerguntasWSDL.setRespostaResponse setResposta(WebServiceCliente.PerguntasWSDL.setRespostaRequest request);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://services/Perguntas/setRespostaRequest", ReplyAction="http://services/Perguntas/setRespostaResponse")]
-        System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.setRespostaResponse> setRespostaAsync(WebServiceCliente.PerguntasWSDL.setRespostaRequest request);
-        
-        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
         [System.ServiceModel.OperationContractAttribute(Action="http://services/Perguntas/getQuestaoRequest", ReplyAction="http://services/Perguntas/getQuestaoResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
@@ -32,6 +23,15 @@ namespace WebServiceCliente.PerguntasWSDL {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://services/Perguntas/getQuestaoRequest", ReplyAction="http://services/Perguntas/getQuestaoResponse")]
         System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.getQuestaoResponse> getQuestaoAsync(WebServiceCliente.PerguntasWSDL.getQuestaoRequest request);
+        
+        // CODEGEN: Parameter 'return' requires additional schema information that cannot be captured using the parameter mode. The specific attribute is 'System.Xml.Serialization.XmlElementAttribute'.
+        [System.ServiceModel.OperationContractAttribute(Action="http://services/Perguntas/setRespostaRequest", ReplyAction="http://services/Perguntas/setRespostaResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [return: System.ServiceModel.MessageParameterAttribute(Name="return")]
+        WebServiceCliente.PerguntasWSDL.setRespostaResponse setResposta(WebServiceCliente.PerguntasWSDL.setRespostaRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://services/Perguntas/setRespostaRequest", ReplyAction="http://services/Perguntas/setRespostaResponse")]
+        System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.setRespostaResponse> setRespostaAsync(WebServiceCliente.PerguntasWSDL.setRespostaRequest request);
     }
     
     /// <remarks/>
@@ -181,52 +181,6 @@ namespace WebServiceCliente.PerguntasWSDL {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="setResposta", WrapperNamespace="http://services/", IsWrapped=true)]
-    public partial class setRespostaRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string ra;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=1)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public string resp;
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=2)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public WebServiceCliente.PerguntasWSDL.questoes q;
-        
-        public setRespostaRequest() {
-        }
-        
-        public setRespostaRequest(string ra, string resp, WebServiceCliente.PerguntasWSDL.questoes q) {
-            this.ra = ra;
-            this.resp = resp;
-            this.q = q;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="setRespostaResponse", WrapperNamespace="http://services/", IsWrapped=true)]
-    public partial class setRespostaResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public bool @return;
-        
-        public setRespostaResponse() {
-        }
-        
-        public setRespostaResponse(bool @return) {
-            this.@return = @return;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="getQuestao", WrapperNamespace="http://services/", IsWrapped=true)]
     public partial class getQuestaoRequest {
         
@@ -248,6 +202,52 @@ namespace WebServiceCliente.PerguntasWSDL {
         }
         
         public getQuestaoResponse(WebServiceCliente.PerguntasWSDL.questoes @return) {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="setResposta", WrapperNamespace="http://services/", IsWrapped=true)]
+    public partial class setRespostaRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string ra;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public string resp;
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public int questao;
+        
+        public setRespostaRequest() {
+        }
+        
+        public setRespostaRequest(string ra, string resp, int questao) {
+            this.ra = ra;
+            this.resp = resp;
+            this.questao = questao;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="setRespostaResponse", WrapperNamespace="http://services/", IsWrapped=true)]
+    public partial class setRespostaResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://services/", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+        public bool @return;
+        
+        public setRespostaResponse() {
+        }
+        
+        public setRespostaResponse(bool @return) {
             this.@return = @return;
         }
     }
@@ -280,33 +280,6 @@ namespace WebServiceCliente.PerguntasWSDL {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        WebServiceCliente.PerguntasWSDL.setRespostaResponse WebServiceCliente.PerguntasWSDL.Perguntas.setResposta(WebServiceCliente.PerguntasWSDL.setRespostaRequest request) {
-            return base.Channel.setResposta(request);
-        }
-        
-        public bool setResposta(string ra, string resp, WebServiceCliente.PerguntasWSDL.questoes q) {
-            WebServiceCliente.PerguntasWSDL.setRespostaRequest inValue = new WebServiceCliente.PerguntasWSDL.setRespostaRequest();
-            inValue.ra = ra;
-            inValue.resp = resp;
-            inValue.q = q;
-            WebServiceCliente.PerguntasWSDL.setRespostaResponse retVal = ((WebServiceCliente.PerguntasWSDL.Perguntas)(this)).setResposta(inValue);
-            return retVal.@return;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.setRespostaResponse> WebServiceCliente.PerguntasWSDL.Perguntas.setRespostaAsync(WebServiceCliente.PerguntasWSDL.setRespostaRequest request) {
-            return base.Channel.setRespostaAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.setRespostaResponse> setRespostaAsync(string ra, string resp, WebServiceCliente.PerguntasWSDL.questoes q) {
-            WebServiceCliente.PerguntasWSDL.setRespostaRequest inValue = new WebServiceCliente.PerguntasWSDL.setRespostaRequest();
-            inValue.ra = ra;
-            inValue.resp = resp;
-            inValue.q = q;
-            return ((WebServiceCliente.PerguntasWSDL.Perguntas)(this)).setRespostaAsync(inValue);
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         WebServiceCliente.PerguntasWSDL.getQuestaoResponse WebServiceCliente.PerguntasWSDL.Perguntas.getQuestao(WebServiceCliente.PerguntasWSDL.getQuestaoRequest request) {
             return base.Channel.getQuestao(request);
         }
@@ -325,6 +298,33 @@ namespace WebServiceCliente.PerguntasWSDL {
         public System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.getQuestaoResponse> getQuestaoAsync() {
             WebServiceCliente.PerguntasWSDL.getQuestaoRequest inValue = new WebServiceCliente.PerguntasWSDL.getQuestaoRequest();
             return ((WebServiceCliente.PerguntasWSDL.Perguntas)(this)).getQuestaoAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        WebServiceCliente.PerguntasWSDL.setRespostaResponse WebServiceCliente.PerguntasWSDL.Perguntas.setResposta(WebServiceCliente.PerguntasWSDL.setRespostaRequest request) {
+            return base.Channel.setResposta(request);
+        }
+        
+        public bool setResposta(string ra, string resp, int questao) {
+            WebServiceCliente.PerguntasWSDL.setRespostaRequest inValue = new WebServiceCliente.PerguntasWSDL.setRespostaRequest();
+            inValue.ra = ra;
+            inValue.resp = resp;
+            inValue.questao = questao;
+            WebServiceCliente.PerguntasWSDL.setRespostaResponse retVal = ((WebServiceCliente.PerguntasWSDL.Perguntas)(this)).setResposta(inValue);
+            return retVal.@return;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.setRespostaResponse> WebServiceCliente.PerguntasWSDL.Perguntas.setRespostaAsync(WebServiceCliente.PerguntasWSDL.setRespostaRequest request) {
+            return base.Channel.setRespostaAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebServiceCliente.PerguntasWSDL.setRespostaResponse> setRespostaAsync(string ra, string resp, int questao) {
+            WebServiceCliente.PerguntasWSDL.setRespostaRequest inValue = new WebServiceCliente.PerguntasWSDL.setRespostaRequest();
+            inValue.ra = ra;
+            inValue.resp = resp;
+            inValue.questao = questao;
+            return ((WebServiceCliente.PerguntasWSDL.Perguntas)(this)).setRespostaAsync(inValue);
         }
     }
 }

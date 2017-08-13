@@ -5,31 +5,31 @@
       <xsd:import schemaLocation="http://localhost:8080/WebService/PerguntasService?xsd=1" namespace="http://services/" />
     </xsd:schema>
   </types>
-  <message name="setResposta">
-    <part name="parameters" element="tns:setResposta" />
-  </message>
-  <message name="setRespostaResponse">
-    <part name="parameters" element="tns:setRespostaResponse" />
-  </message>
   <message name="getQuestao">
     <part name="parameters" element="tns:getQuestao" />
   </message>
   <message name="getQuestaoResponse">
     <part name="parameters" element="tns:getQuestaoResponse" />
   </message>
+  <message name="setResposta">
+    <part name="parameters" element="tns:setResposta" />
+  </message>
+  <message name="setRespostaResponse">
+    <part name="parameters" element="tns:setRespostaResponse" />
+  </message>
   <portType name="Perguntas">
-    <operation name="setResposta">
-      <input wsam:Action="http://services/Perguntas/setRespostaRequest" message="tns:setResposta" />
-      <output wsam:Action="http://services/Perguntas/setRespostaResponse" message="tns:setRespostaResponse" />
-    </operation>
     <operation name="getQuestao">
       <input wsam:Action="http://services/Perguntas/getQuestaoRequest" message="tns:getQuestao" />
       <output wsam:Action="http://services/Perguntas/getQuestaoResponse" message="tns:getQuestaoResponse" />
     </operation>
+    <operation name="setResposta">
+      <input wsam:Action="http://services/Perguntas/setRespostaRequest" message="tns:setResposta" />
+      <output wsam:Action="http://services/Perguntas/setRespostaResponse" message="tns:setRespostaResponse" />
+    </operation>
   </portType>
   <binding name="PerguntasPortBinding" type="tns:Perguntas">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <operation name="setResposta">
+    <operation name="getQuestao">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />
@@ -38,7 +38,7 @@
         <soap:body use="literal" />
       </output>
     </operation>
-    <operation name="getQuestao">
+    <operation name="setResposta">
       <soap:operation soapAction="" />
       <input>
         <soap:body use="literal" />

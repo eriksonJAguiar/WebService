@@ -27,14 +27,14 @@ namespace WebServiceCliente.Models
             return q;
            
         }
-        public bool setResposta(String ra, String resposta, PerguntasWSDL.questoes q)
+        public bool setResposta(String ra, String resposta, int questao)
         {
             bool r = false;
             try
             {
                 PerguntasWSDL.PerguntasClient c = new PerguntasWSDL.PerguntasClient();
 
-                r = c.setResposta(ra, resposta, q);
+                r = c.setResposta(ra, resposta, questao);
             }
             catch (Exception)
             {

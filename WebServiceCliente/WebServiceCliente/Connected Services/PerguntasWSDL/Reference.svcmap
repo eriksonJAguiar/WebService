@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2e31ce41-9be4-406c-abf3-59caac4b9554" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="370e4cde-917e-42fa-869c-55374d1737d6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="http://localhost:8080/WebService/PerguntasService?WSDL" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PerguntasService.xsd" MetadataType="Schema" ID="dcfa6d19-a9dd-476d-af6d-8e37d812259f" SourceId="1" SourceUrl="http://localhost:8080/WebService/PerguntasService?xsd=1" />
-    <MetadataFile FileName="PerguntasService.wsdl" MetadataType="Wsdl" ID="f70de72b-af3b-4428-a91d-284610e90c9e" SourceId="1" SourceUrl="http://localhost:8080/WebService/PerguntasService?WSDL" />
+    <MetadataFile FileName="PerguntasService.xsd" MetadataType="Schema" ID="39a61c12-f43e-4144-b5da-0bc7bfd9cdba" SourceId="1" SourceUrl="http://localhost:8080/WebService/PerguntasService?xsd=1" />
+    <MetadataFile FileName="PerguntasService.wsdl" MetadataType="Wsdl" ID="37241603-645d-4f41-9ec0-7881b4a3c1c2" SourceId="1" SourceUrl="http://localhost:8080/WebService/PerguntasService?WSDL" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
