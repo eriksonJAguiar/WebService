@@ -9,7 +9,6 @@ namespace WebServiceCliente.Controllers
 {
     public class QuizController : Controller
     {
-
         public ActionResult Index()
         {
             var s = new Service();

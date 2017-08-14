@@ -45,6 +45,23 @@ namespace WebServiceCliente.Models
             return r;
 
         }
+        public Usuario login(String ra, String senha)
+        {
+            Usuario u = Usuario.getInstance();
+
+            if (ra.Equals("admin") && senha.Equals("admin"))
+            {
+                u.nome = "admin";
+                u.login = "admin";
+                u.senha = "admin";
+            }
+            else
+            {
+                u = null;
+            }
+
+            return u;
+        }
        
     }
 }
